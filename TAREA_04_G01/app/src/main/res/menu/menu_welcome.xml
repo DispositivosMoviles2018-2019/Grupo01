@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ec.edu.uce.tarea_04_g01.WelcomeActivity">
+    <item
+        android:id="@+id/action_back"
+        android:orderInCategory="100"
+        android:title="@string/action_back"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_close"
+        android:orderInCategory="100"
+        android:title="@string/action_close"
+        app:showAsAction="never" />
+</menu>

@@ -1,6 +1,7 @@
 # Grupo01
 
-Acosta Bryan
-Alvear Monica
-Jativa Juan
-Saltos Bryan
+## Integrantes
+* [Acosta Bryan](https://github.com/bxacosta)
+* Alvear Monica
+* Jativa Juan
+* [Saltos Bryan](https://github.com/Bryan810)

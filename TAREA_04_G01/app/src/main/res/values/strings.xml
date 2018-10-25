@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">TAREA_04_G01</string>
+    <string name="action_back">Regresar</string>
+    <string name="action_close">Salir</string>
+    <string name="title_activity_login">Iniciar Sesión</string>
+    <string name="title_activity_welcome">Inicio</string>
+    <string name="title_activity_register">Registro</string>
+    <string name="student_name">Nombre</string>
+    <string name="student_description">Descripcion</string>
+    <string name="student_photo">Foto estudiente</string>
+    <string name="prompt_email">Ingresar Usuario</string>
+    <string name="prompt_password">Ingresar Clave</string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_in_short">Ingrear 2</string>
+
+    <string name="username">Ingrese su usuario</string>
+    <string name="password">Ingrese su clave</string>
+    <string name="name">Ingrese su nombre</string>
+    <string name="lastName">Ingrese su apellido</string>
+    <string name="mail">Ingrese su email</string>
+    <string name="phone">Ingrese su telefono</string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
+    <string name="select_subjects">Seleccionar asignaturas</string>
+    <string name="subject1">Matemáticas </string>
+    <string name="subject2">Programación</string>
+    <string name="subject3">Física</string>
+    <string name="subject4">Química</string>
+    <string name="subject5">Álgebra</string>
+    <string name="scholarship">Tiene beca</string>
+</resources>
