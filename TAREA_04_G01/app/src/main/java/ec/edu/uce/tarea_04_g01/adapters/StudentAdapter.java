@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ec.edu.uce.tarea_04_g01.R;
-import ec.edu.uce.tarea_04_g01.dtos.Student;
+import ec.edu.uce.tarea_04_g01.models.Student;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolderStudents> {
 

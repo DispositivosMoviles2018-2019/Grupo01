@@ -1,4 +1,4 @@
-package ec.edu.uce.tarea_04_g01.dtos;
+package ec.edu.uce.tarea_04_g01.models;
 
 public class Student {
 

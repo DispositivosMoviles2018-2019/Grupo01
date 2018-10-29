@@ -2,20 +2,17 @@ package ec.edu.uce.tarea_04_g01;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
 
 import ec.edu.uce.tarea_04_g01.adapters.StudentAdapter;
-import ec.edu.uce.tarea_04_g01.dtos.Student;
+import ec.edu.uce.tarea_04_g01.models.Student;
 
 public class WelcomeActivity extends AppCompatActivity {
 
