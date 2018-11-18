@@ -30,8 +30,6 @@ import ec.edu.uce.vista.DatePickerFragment;
 
 public class FormActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    private VehiculoService vehiculoService = new VehiculoService();
-
     private EditText txtPlaca;
     private EditText txtMarca;
     private EditText txtCosto;
@@ -58,9 +56,6 @@ public class FormActivity extends AppCompatActivity implements DatePickerDialog.
         String datePattern = "dd MMMM yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
 
-        // Todo eliminar
-        System.out.println("Precios: " + txtCosto.getText().toString());
-
         Double cost = Double.parseDouble(txtCosto.getText().toString());
         Boolean isEnrollment = wsEnrollment.isChecked();
         Date date = new Date();
@@ -82,12 +77,10 @@ public class FormActivity extends AppCompatActivity implements DatePickerDialog.
             if (!WelcomeActivity.vehiculos.contains(vehiculo)) {
                 WelcomeActivity.vehiculos.add(vehiculo);
 
-                WelcomeActivity.adapter.notifyDataSetChanged();
-
                 Toast.makeText(this, "Vehiculo con la placa " + vehiculo.getPlaca().toUpperCase() + " agregado correctamente", Toast.LENGTH_LONG).show();
                 finish();
             } else {
-                Toast.makeText(this, "Vehiculo con la placa " + vehiculo.getPlaca().toUpperCase() + " ya existe", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Vehiculo con la placa " + vehiculo.getPlaca().toUpperCase() + " ya existe ingrese otro", Toast.LENGTH_LONG).show();
             }
         } catch (CustomException e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();

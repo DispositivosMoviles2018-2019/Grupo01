@@ -6,7 +6,6 @@ import android.widget.Toast;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,23 +19,19 @@ import ec.edu.uce.modelo.Usuario;
 public class UserService {
 
     private ObjectMapper MAPPER = new ObjectMapper();
-    private final String REGISTER_FILE_NAME = "registro.txt";
+    private final String REGISTER_FILE_NAME = "usuarios.txt";
 
-    private FileManager fileManager = new FileManager();
+    private FileManagerService fileManagerService = new FileManagerService();
     private File registerFile;
 
     public UserService() {
-        this.registerFile = fileManager.getFile(REGISTER_FILE_NAME);
+        this.registerFile = fileManagerService.getFile(REGISTER_FILE_NAME);
     }
 
-    public void initResources(Context context) {
+    public void createUsersFileIfNotExist(Context context) {
         try {
-            if (!fileManager.existBaseFolder()) {
-                fileManager.createBaseFolder();
-                Toast.makeText(context, "Creando carpeta: " + fileManager.getBaseFolder().getName(), Toast.LENGTH_LONG).show();
-            }
             if (!existFile()) {
-                fileManager.createFile(REGISTER_FILE_NAME);
+                fileManagerService.createFile(REGISTER_FILE_NAME);
                 Toast.makeText(context, "Creando el archivo: " + REGISTER_FILE_NAME, Toast.LENGTH_LONG).show();
             }
         } catch (StorageException e) {
@@ -48,7 +43,7 @@ public class UserService {
         List<Usuario> usuarios = getUsuarios();
         usuarios.add(usuario);
         try {
-            fileManager.writeFile(registerFile, MAPPER.writeValueAsString(usuarios));
+            fileManagerService.writeFile(registerFile, MAPPER.writeValueAsString(usuarios));
             return usuario;
         } catch (JsonProcessingException e) {
             throw new CustomException("Error al guardar los datos del usuarios", e);
@@ -58,7 +53,7 @@ public class UserService {
     public List<Usuario> getUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
         if (existFile()) {
-            String registerData = fileManager.readFile(registerFile);
+            String registerData = fileManagerService.readFile(registerFile);
             if (!registerData.isEmpty()) {
                 try {
                     usuarios = MAPPER.readValue(registerData, new TypeReference<List<Usuario>>() {
@@ -71,22 +66,22 @@ public class UserService {
         return usuarios;
     }
 
-    public Usuario find(Usuario usuario) {
+    public Usuario findByUsername(String username) {
         List<Usuario> usuarios = getUsuarios();
 
         for (Usuario usr : usuarios) {
-            if (usr.equals(usuario)) {
+            if (usr.getUsername().equals(username)) {
                 return usr;
             }
         }
         return null;
     }
 
-    public boolean existFile() {
-        return fileManager.existFile(REGISTER_FILE_NAME);
+    public boolean existUsuario(Usuario usuario) {
+        return findByUsername(usuario.getUsername()) != null;
     }
 
-    public boolean exist(Usuario usuario) {
-        return getUsuarios().contains(usuario);
+    public boolean existFile() {
+        return fileManagerService.existFile(REGISTER_FILE_NAME);
     }
 }

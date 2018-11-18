@@ -89,11 +89,6 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
-    public void onStop () {
-        super.onStop();
-        persistData(vehiculos);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

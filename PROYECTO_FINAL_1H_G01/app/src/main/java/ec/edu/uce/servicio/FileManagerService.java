@@ -19,21 +19,20 @@ import java.util.List;
 
 import ec.edu.uce.componentes.StorageException;
 
-public class FileManager {
+public class FileManagerService {
 
     private final File ROOT_PATH = Environment.getExternalStorageDirectory();
-    private final String FOLDER_NAME = "optativa3";
-    private ObjectMapper MAPPER = new ObjectMapper();
+    public static final String FOLDER_NAME = "optativa3";
 
     public File getBaseFolder() {
         return new File(ROOT_PATH, FOLDER_NAME);
     }
 
-    public boolean existBaseFolder() {
+    public boolean existFolder() {
         return getBaseFolder().exists();
     }
 
-    public void createBaseFolder() {
+    public void createFolder() {
         if (!getBaseFolder().mkdirs()) {
             throw new StorageException("Error al crear la carpeta: " + FOLDER_NAME);
         }

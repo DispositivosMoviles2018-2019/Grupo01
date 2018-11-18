@@ -52,11 +52,10 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:background="@android:color/holo_purple"
+                android:background="@color/colorLightAccent"
                 android:onClick="register"
                 android:text="@string/register" />
         </LinearLayout>

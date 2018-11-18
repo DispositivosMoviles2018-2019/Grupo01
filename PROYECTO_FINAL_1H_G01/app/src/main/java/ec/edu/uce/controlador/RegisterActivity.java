@@ -30,11 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
         EditText txtPassword = findViewById(R.id.txtPassword);
 
         try {
-            userService.initResources(this);
+            userService.createUsersFileIfNotExist(this);
 
             Usuario usuario = new Usuario(txtUsername.getText().toString(), txtPassword.getText().toString());
-            if (userService.exist(usuario)) {
-                Toast.makeText(this, "El usuario " + usuario.getUsername() + " ya existe ingrese otro", Toast.LENGTH_LONG).show();
+            if (userService.existUsuario(usuario)) {
+                Toast.makeText(this, "El nombre de usaurio " + usuario.getUsername() + " ya existe ingrese otro", Toast.LENGTH_LONG).show();
             } else {
                 userService.save(usuario);
                 Toast.makeText(this, "Usuario " + usuario.getUsername() + " registrado correctamente", Toast.LENGTH_LONG).show();
