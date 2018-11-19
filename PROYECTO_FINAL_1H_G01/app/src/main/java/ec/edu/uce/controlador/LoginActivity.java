@@ -98,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Cambia el estado de los botones
+     *
      * @param status true o false para activar los botones
      */
     public void enableButtons(boolean status) {

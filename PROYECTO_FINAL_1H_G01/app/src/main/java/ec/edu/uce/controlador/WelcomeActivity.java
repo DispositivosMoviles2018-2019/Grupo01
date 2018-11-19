@@ -3,22 +3,18 @@ package ec.edu.uce.controlador;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -53,7 +49,7 @@ public class WelcomeActivity extends AppCompatActivity {
         adapter = new DataAdapter(vehiculos, this);
         recyclerStdudents.setAdapter(adapter);
 
-        // Define el ClickListener
+        // Define el ClickListener en RecyclerView
         adapter.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, final int position, boolean isLongClick) {
@@ -68,9 +64,8 @@ public class WelcomeActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int item) {
                             switch (item) {
                                 case 0: // Editar
-                                    EditFormActivity.vehiculo = vehiculos.get(position);
-
-                                    Intent intent = new Intent(WelcomeActivity.this, EditFormActivity.class);
+                                    Intent intent = new Intent(WelcomeActivity.this, FormActivity.class);
+                                    intent.putExtra("position", position);
                                     startActivity(intent);
                                     break;
                                 case 1: // Eliminar
@@ -83,10 +78,48 @@ public class WelcomeActivity extends AppCompatActivity {
                     });
                     builder.show();
                 } else {
-                    Toast.makeText(WelcomeActivity.this, "Manten presionado para ver las opciones", Toast.LENGTH_LONG).show();
+                    Toast.makeText(WelcomeActivity.this, "Manten presionado para ver las opciones", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        updateRecyclerView();
+    }
+
+    public void persistData() {
+        try {
+            if (!vehiculoService.existFile()) {
+                vehiculoService.createVehiculoFileIfNotExist(this);
+            }
+            Toast.makeText(this, "Persistiendo datos", Toast.LENGTH_SHORT).show();
+            vehiculoService.save(vehiculos);
+        } catch (CustomException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void initVehiculos() {
+        if (vehiculoService.existFile()) {
+            vehiculos = vehiculoService.getVehiculos();
+        } else {
+            vehiculos.add(new Vehiculo("XTR-9784", "Audi", new GregorianCalendar(2015, 11, 13).getTime(), 79990.0, true, "Negro"));
+            vehiculos.add(new Vehiculo("CCD-0789", "Honda", new GregorianCalendar(1998, 3, 5).getTime(), 15340.0, false, "Blanco"));
+        }
+    }
+
+    public void redirectFormActivity(View view) {
+        Intent intent = new Intent(this, FormActivity.class);
+        startActivity(intent);
+    }
+
+    public void onDestroy() {
+        persistData();
+        super.onDestroy();
+    }
+
+    public static void updateRecyclerView() {
+        Collections.sort(vehiculos, Vehiculo.getCompByPlaca());
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -105,41 +138,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_persist) {
-            persistData(vehiculos);
+            persistData();
             return true;
         } else if (id == R.id.action_close) {
-            persistData(vehiculos);
             finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void persistData(List<Vehiculo> vehiculos) {
-        try {
-            if (!vehiculoService.existFile()) {
-                vehiculoService.initResources(this);
-            }
-            this.vehiculos = vehiculoService.save(vehiculos);
-            Toast.makeText(this, "Datos persistidos correctamente", Toast.LENGTH_LONG).show();
-        } catch (CustomException e) {
-
-        }
-    }
-
-
-    public void redirectFormActivity(View view) {
-        Intent intent = new Intent(this, FormActivity.class);
-        startActivity(intent);
-    }
-
-    public void initVehiculos() {
-        if (vehiculoService.existFile()) {
-            vehiculos = vehiculoService.getVehiculos();
-        } else {
-            vehiculos.add(new Vehiculo("XTR-9784", "Audi", new GregorianCalendar(2015, 11, 13).getTime(), 79990.0, true, "Negro"));
-            vehiculos.add(new Vehiculo("CCD-0789", "Honda", new GregorianCalendar(1998, 3, 5).getTime(), 15340.0, false, "Blanco"));
-        }
     }
 }

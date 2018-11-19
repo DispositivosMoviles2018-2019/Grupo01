@@ -58,6 +58,7 @@
                     android:layout_marginTop="10dp"
                     android:ems="10"
                     android:hint="@string/input_cost"
+                    android:text="0"
                     android:inputType="numberDecimal" />
 
                 <EditText
@@ -82,6 +83,44 @@
                         android:layout_weight="1"
                         android:text="@string/switch_enrollment"
                         android:textSize="18dp" />
+
+                    <!--<CheckBox-->
+                        <!--android:id="@+id/sw_enrollment"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="@string/switch_enrollment"-->
+                        <!--android:textSize="18dp" />-->
+
+
+                    <!--<RadioGroup-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:layout_weight="1">-->
+                        <!--<TextView-->
+                            <!--android:id="@+id/textView"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:textSize="18dp"-->
+                            <!--android:text="@string/switch_enrollment" />-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/sw_enrollment_yes"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:onClick="onRadioButtonClicked"-->
+                            <!--android:text="Si" />-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/sw_enrollment_no"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:onClick="onRadioButtonClicked"-->
+                            <!--android:text="No" />-->
+                    <!--</RadioGroup>-->
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -94,17 +133,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fecha fabricación:"
-                        android:textSize="18dp"/>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/txt_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="showDataPicker"
-                        android:hint="Seleccione"
                         android:gravity="right"
-                        android:textSize="18dp"/>
+                        android:hint="Seleccione"
+                        android:onClick="showDataPicker"
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 

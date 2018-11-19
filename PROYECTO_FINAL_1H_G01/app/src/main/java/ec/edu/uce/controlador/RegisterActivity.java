@@ -3,6 +3,7 @@ package ec.edu.uce.controlador;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,19 +30,28 @@ public class RegisterActivity extends AppCompatActivity {
         EditText txtUsername = findViewById(R.id.txtUsername);
         EditText txtPassword = findViewById(R.id.txtPassword);
 
-        try {
-            userService.createUsersFileIfNotExist(this);
+        boolean guardar = true;
+        if (TextUtils.isEmpty(txtUsername.getText()) || TextUtils.isEmpty(txtPassword.getText())) {
+            guardar = false;
+            txtUsername.setError("Este campo es obligatorio");
+            txtUsername.setError("Este campo es obligatorio");
+        }
 
-            Usuario usuario = new Usuario(txtUsername.getText().toString(), txtPassword.getText().toString());
-            if (userService.existUsuario(usuario)) {
-                Toast.makeText(this, "El nombre de usaurio " + usuario.getUsername() + " ya existe ingrese otro", Toast.LENGTH_LONG).show();
-            } else {
-                userService.save(usuario);
-                Toast.makeText(this, "Usuario " + usuario.getUsername() + " registrado correctamente", Toast.LENGTH_LONG).show();
-                finish();
+        if (guardar) {
+            try {
+                userService.createUsersFileIfNotExist(this);
+
+                Usuario usuario = new Usuario(txtUsername.getText().toString(), txtPassword.getText().toString());
+                if (userService.existUsuario(usuario)) {
+                    Toast.makeText(this, "El nombre de usaurio " + usuario.getUsername() + " ya existe ingrese otro", Toast.LENGTH_LONG).show();
+                } else {
+                    userService.save(usuario);
+                    Toast.makeText(this, "Usuario " + usuario.getUsername() + " registrado correctamente", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            } catch (CustomException e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }catch (CustomException e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }

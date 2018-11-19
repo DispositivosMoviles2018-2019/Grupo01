@@ -33,10 +33,6 @@
             android:name=".controlador.FormActivity"
             android:label="@string/title_activity_form"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".controlador.EditFormActivity"
-            android:label="@string/title_activity_edit_form"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -28,7 +28,7 @@ public class VehiculoService {
         this.vehiculoFile = fileManagerService.getFile(VEHICULO_FILE_NAME);
     }
 
-    public void initResources(Context context) {
+    public void createVehiculoFileIfNotExist(Context context) {
         try {
             if (!fileManagerService.existFile(VEHICULO_FILE_NAME)) {
                 fileManagerService.createFile(VEHICULO_FILE_NAME);

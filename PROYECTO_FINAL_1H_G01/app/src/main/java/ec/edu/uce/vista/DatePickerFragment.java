@@ -20,6 +20,6 @@ public class DatePickerFragment extends DialogFragment {
         int anio = c.get(Calendar.YEAR);
         int mes = c.get(Calendar.MONTH);
         int dia = c.get(Calendar.DAY_OF_MONTH);
-        return new DatePickerDialog(getActivity(),(DatePickerDialog.OnDateSetListener) getActivity(),anio,mes,dia);
+        return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), anio, mes, dia);
     }
 }

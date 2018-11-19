@@ -1,9 +1,10 @@
 package ec.edu.uce.modelo;
 
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.Objects;
 
-public class Vehiculo {
+public class Vehiculo implements Serializable {
 
     private String placa;
     private String marca;
@@ -97,5 +98,65 @@ public class Vehiculo {
                 ", matriculado=" + matriculado +
                 ", color='" + color + '\'' +
                 '}';
+    }
+
+    public static Comparator<Vehiculo> getCompByFechaFabricacion() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                if (o1.getFechaFabricacion().before(o2.getFechaFabricacion())) {
+                    return -1;
+                } else if (o1.getFechaFabricacion().after(o2.getFechaFabricacion())) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        };
+    }
+
+    public static Comparator<Vehiculo> getCompByPlaca() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                return o1.getPlaca().compareToIgnoreCase(o2.getPlaca());
+            }
+        };
+    }
+
+    public static Comparator<Vehiculo> getCompByMarca() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                return o1.getMarca().compareToIgnoreCase(o2.getMarca());
+            }
+        };
+    }
+
+    public static Comparator<Vehiculo> getCompByColor() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                return o1.getColor().compareToIgnoreCase(o2.getColor());
+            }
+        };
+    }
+
+    public static Comparator<Vehiculo> getCompByCosto() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                return (int) (o1.getCosto() - o2.getCosto());
+            }
+        };
+    }
+
+    public static Comparator<Vehiculo> getCompByMatriculado() {
+        return new Comparator<Vehiculo>() {
+            @Override
+            public int compare(Vehiculo o1, Vehiculo o2) {
+                return o1.getMatriculado().compareTo(o2.getMatriculado());
+            }
+        };
     }
 }
