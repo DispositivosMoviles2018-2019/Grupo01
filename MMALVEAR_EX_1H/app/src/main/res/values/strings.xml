@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PROYECTO_FINAL_1H_G01</string>
+    <string name="title_activity_login">Inicio</string>
+
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="register">Registrarme</string>
+
+    <!--Menu main-->
+    <string name="action_persist">Persistir</string>
+    <string name="action_logout">Salir</string>
+
+    <string name="title_activity_welcome">Inicio</string>
+    <string name="title_activity_register">Registrarse</string>
+    <string name="title_activity_form">Ingresar Datos</string>
+
+    <!-- From -->
+    <string name="input_license">Ingrese la placa</string>
+    <string name="input_brand">Ingrese la marca</string>
+    <string name="input_cost">Ingrese el costo</string>
+    <string name="input_color">Ingrese el color</string>
+    <string name="switch_enrollment">Esta matriculado:</string>
+
+    <!--Buttons-->
+    <string name="save">Guardar</string>
+    <string name="title_activity_edit_form">EditFormActivity</string>
+
+</resources>
