@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(txtUsername.getText()) || TextUtils.isEmpty(txtPassword.getText())) {
             guardar = false;
             txtUsername.setError("Este campo es obligatorio");
-            txtUsername.setError("Este campo es obligatorio");
+            txtPassword.setError("Este campo es obligatorio");
         }
 
         if (guardar) {
