@@ -25,22 +25,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("Perro 1");
-        btn_recorder = (Button)findViewById(R.id.btn_rec);
-        System.out.println("Perro 2");
-
+        btn_recorder = (Button) findViewById(R.id.btn_rec);
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            System.out.println("Perro 3");
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
         }
-        System.out.println("Perro 4");
-
     }
 
-    public void recorder(View view){
+    public void recorder(View view) {
 
-        if (grabacion == null){
+        if (grabacion == null) {
             archivoSalida = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Grabacion.mp3";
             grabacion = new MediaRecorder();
             grabacion.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -48,31 +42,30 @@ public class MainActivity extends AppCompatActivity {
             grabacion.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
             grabacion.setOutputFile(archivoSalida);
 
-            try{
-                grabacion.start();
-            }catch (Exception e){
-
+            try {
+                grabacion.prepare();
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
             }
-
+            grabacion.start();
             //btn_recorder.setBackgroundResource(R.drawable.rec);
             Toast.makeText(getApplicationContext(), "Grabando", Toast.LENGTH_SHORT).show();
-        } else  if (grabacion != null){
+        } else if (grabacion != null) {
             grabacion.stop();
             grabacion.release();
             grabacion = null;
             //btn_recorder.setBackgroundResource(R.drawable.stop_rec);
             Toast.makeText(getApplicationContext(), "Grabacion Finalizada", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 
-    public void reproducir(View view){
+    public void reproducir(View view) {
         MediaPlayer mediaPlayer = new MediaPlayer();
-        try{
+        try {
             mediaPlayer.setDataSource(archivoSalida);
             mediaPlayer.prepare();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         mediaPlayer.start();
