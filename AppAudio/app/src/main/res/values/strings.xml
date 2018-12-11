@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Grabadora</string>
+    <string name="btn_rec">Grabar</string>
+    <string name="btn_ply">Reproducir</string>
 </resources>

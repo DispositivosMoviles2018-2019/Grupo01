@@ -25,14 +25,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        System.out.println("Perro 1");
         btn_recorder = (Button)findViewById(R.id.btn_rec);
-
+        System.out.println("Perro 2");
 
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            System.out.println("Perro 3");
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
         }
+        System.out.println("Perro 4");
+
     }
 
     public void recorder(View view){
@@ -51,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            btn_recorder.setBackgroundResource(R.drawable.rec);
+            //btn_recorder.setBackgroundResource(R.drawable.rec);
             Toast.makeText(getApplicationContext(), "Grabando", Toast.LENGTH_SHORT).show();
         } else  if (grabacion != null){
             grabacion.stop();
             grabacion.release();
             grabacion = null;
-            btn_recorder.setBackgroundResource(R.drawable.stop_rec);
+            //btn_recorder.setBackgroundResource(R.drawable.stop_rec);
             Toast.makeText(getApplicationContext(), "Grabacion Finalizada", Toast.LENGTH_SHORT).show();
         }
 
