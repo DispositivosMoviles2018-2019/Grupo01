@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="circle_imagen">90dp</dimen>
+    <dimen name="imagen">200dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="content_margin">10dp</dimen>
+    <dimen name="main_button">20dp</dimen>
+    <dimen name="field_margin">32dp</dimen>
+    <dimen name="textSecondary">12sp</dimen>
+    <dimen name="mainText">16sp</dimen>
+    <dimen name="icono">24sp</dimen>
+
+</resources>
