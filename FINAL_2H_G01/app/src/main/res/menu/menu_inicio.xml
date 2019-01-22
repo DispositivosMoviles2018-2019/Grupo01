@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_configurar"
+        android:title="@string/configurar" />
+
+    <item
+        android:id="@+id/action_salir"
+        android:title="@string/salir" />
+
+</menu>

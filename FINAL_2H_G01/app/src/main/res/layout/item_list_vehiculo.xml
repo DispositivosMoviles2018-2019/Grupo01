@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/content_margin"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civFoto"
+            android:layout_width="@dimen/circle_imagen"
+            android:layout_height="@dimen/circle_imagen"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/content_margin"
+            android:src="@color/textPrimary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!--column 1-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/marca"
+                        android:textColor="@color/textPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvMarca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mercedes"
+                        android:textColor="@color/textSecondary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color"
+                        android:textColor="@color/textPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rojo"
+                        android:textColor="@color/textSecondary" />
+                </LinearLayout>
+
+                <!--column 2-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/estado"
+                        android:textColor="@color/textPrimary" />
+                    <TextView
+                        android:id="@+id/tvEstado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Disponibe"
+                        android:textColor="@color/textSecondary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tipo"
+                        android:textColor="@color/textPrimary" />
+                    <TextView
+                        android:id="@+id/tvTipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mercedes"
+                        android:textColor="@color/textSecondary" />
+
+                </LinearLayout>
+
+                <!--column 3-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fabricado"
+                        android:textColor="@color/textPrimary" />
+                    <TextView
+                        android:id="@+id/tvFabricado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="17-11-1995"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="@dimen/textSecondary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/matriculado"
+                        android:textColor="@color/textPrimary" />
+                    <TextView
+                        android:id="@+id/tvMatriculado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Si"
+                        android:textColor="@color/textSecondary" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnOpciones"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/puntos_menu"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvPlaca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QED-1234"
+                    android:textColor="@color/textPrimary" />
+
+
+                <TextView
+                    android:id="@+id/tvCosto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="USD 300.50"
+                    android:textColor="@color/textPrimary" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/textSecondary" />
+
+</LinearLayout>
+
+

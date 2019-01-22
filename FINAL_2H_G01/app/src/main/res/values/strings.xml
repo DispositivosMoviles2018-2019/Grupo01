@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">FINAL_G1</string>
+
+    <!--menu inicio-->
+    <string name="configurar">Configurar</string>
+    <string name="salir">Salir</string>
+
+    <!--menu vehiculo-->
+    <string name="puntos_menu">&#8942;</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+
+    <!--login-->
+    <string name="usuario">Usuario</string>
+    <string name="clave">Clave</string>
+    <string name="login">Ingresar</string>
+
+    <!--registro-->
+    <string name="ingrese_usuario">Ingrese su usuario</string>
+    <string name="ingrese_clave">Ingrese su clave</string>
+    <string name="registro">Registrarme</string>
+
+    <!--principal-->
+    <string name="vehiculo">Vehículos</string>
+    <string name="reserva">Reservas</string>
+
+    <!--vehiculo item-->
+    <string name="placa">Placa</string>
+    <string name="marca">Marca</string>
+    <string name="fabricado">Fabricado</string>
+    <string name="costo">Costo</string>
+    <string name="matriculado">Matriculado</string>
+    <string name="color">Color</string>
+    <string name="tipo">Tipo</string>
+    <string name="foto">Foto</string>
+    <string name="estado">Disponible</string>
+
+    <!--tipo-->
+    <string name="automovil">Automovil</string>
+    <string name="camioneta">Camioneta</string>
+    <string name="furgoneta">Furgoneta</string>
+
+    <!--bottom menu-->
+    <string name="tomar_foto">Tomar foto</string>
+    <string name="abrir_galeria">Abrir galería</string>
+
+    <!--form vehiculo-->
+    <string name="guardar">Guardar</string>
+
+    <!--activities-->
+    <string name="title_activity_login">Ingresar</string>
+    <string name="title_activity_registro">Registro</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_vehiculo">Vehiculos</string>
+    <string name="title_activity_vehiculo_form">Registrar Vehiculo</string>
+
+    <!--reserva activity-->
+    <string name="ingrese_placa">Ingresar Placa</string>
+    <string name="buscar_placa">Buscar</string>
+
+
+
+</resources>
